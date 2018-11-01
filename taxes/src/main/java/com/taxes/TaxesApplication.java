@@ -1,6 +1,5 @@
 package com.taxes;
 
-import com.taxes.dao.IEntrepriseRepository;
 import com.taxes.entities.Entreprise;
 import com.taxes.entities.IR;
 import com.taxes.entities.ITaxeRepository;
@@ -11,11 +10,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import com.taxes.dao.EntrepriseRepository;
 
 @SpringBootApplication
 public class TaxesApplication implements CommandLineRunner {
     @Autowired
-    private IEntrepriseRepository entrepriseRepository;
+    private EntrepriseRepository entrepriseRepository;
     
     @Autowired
     private ITaxeRepository taxeRepository;

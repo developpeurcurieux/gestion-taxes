@@ -13,6 +13,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
 
 
 @Entity
@@ -20,8 +23,17 @@ public class Entreprise implements Serializable {
    @Id
    @GeneratedValue
    private Long code;
+   
+   @NotNull
+   @Size(min=2, max=20)
    private String nom;
+   
+   @NotNull
+   @Email
    private String email;
+   
+   @NotNull
+   @Size(min=2, max=30)
    private String raisonSociale;
    
    @OneToMany(mappedBy="entreprise", fetch=FetchType.LAZY)

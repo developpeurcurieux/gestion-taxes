@@ -15,7 +15,7 @@ import org.springframework.data.repository.query.Param;
 
 
 
-public interface IEntrepriseRepository extends JpaRepository<Entreprise, Long> {
+public interface EntrepriseRepository extends JpaRepository<Entreprise, Long> {
 
     @Query("SELECT e From Entreprise e WHERE e.nom like :x")
     public Page<Entreprise> chercher(@Param("x") String e, Pageable pageable);    
