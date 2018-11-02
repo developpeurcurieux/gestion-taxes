@@ -57,15 +57,16 @@ public class TaxeController {
         if(errors.hasErrors()) {
             return "formEntreprise";
         }
-        
+
         entrepriseRepository.save(entreprise);
         return "redirect:/entreprises";
     }
     
     @GetMapping("/taxes")
-    public String getTaxes(Model model, @RequestParam(name="code")Long code) {
+    public String getTaxes(Model model, @RequestParam(name="code") Long code) {
         Entreprise entreprise = new Entreprise();
         entreprise.setCode(code);
+        model.addAttribute("entreprises", entrepriseRepository.findAll());
         model.addAttribute("taxes", taxeRepository.findByEntreprise(entreprise));
         return "taxes";
     }

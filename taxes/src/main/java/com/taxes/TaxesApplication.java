@@ -1,8 +1,8 @@
 package com.taxes;
 
+import com.taxes.dao.TaxeRepository;
 import com.taxes.entities.Entreprise;
 import com.taxes.entities.IR;
-import com.taxes.entities.ITaxeRepository;
 import com.taxes.entities.TVA;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +18,8 @@ public class TaxesApplication implements CommandLineRunner {
     private EntrepriseRepository entrepriseRepository;
     
     @Autowired
-    private ITaxeRepository taxeRepository;
-    
+    private TaxeRepository taxeRepository;
+
     
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(TaxesApplication.class, args);
